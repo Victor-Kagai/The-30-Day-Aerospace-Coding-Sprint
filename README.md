@@ -1,0 +1,1 @@
+This is the bridge between Python foundation and true AI/ML work in aerospace — what I like to call the “Python–to–AI Transition Phase.”It starts with engineering fluency in Python and a grasp of how to model physical systems digitally.
