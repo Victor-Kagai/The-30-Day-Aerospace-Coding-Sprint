@@ -1,0 +1,76 @@
+# CALCULATING THE DYNAMIC PRESSURE
+## Level 1 ;
+
+rho=1.225
+v=60
+q=1/2 * rho * v * v
+print(f"The dynamic pressure is {q} Pascals")
+
+## Level 2 ;
+rho=1.225
+v=60
+q=0.5 * rho * v**2
+print(f"The dynamic pressure is {q} Pascals")
+
+## Level 3 ;
+rho=1.225
+v=float(input("Enter the velocity in m/s : ")
+q=0.5*rho*v**2
+print(f"The dynamic pressure is {q} Pascals)
+
+## Level 4 ;
+rho=float(input("Enter the air density in kg/m3 (default is 1.225) : or 1.225)
+v=float(input("Enter the air velocity : )
+q=0.5*rho*v**2
+print(f"The dynamic pressure is {q :4f} Pasacals")
+
+
+** For our bonus code today **
+### We will do a print statement with things like significant figures,constants,stripping,joining and searching :
+# Constants (engineering standards)
+AIR_DENSITY_SEA_LEVEL = 1.225  # kg/m³ at 15°C ISA
+GRAVITY = 9.80665  # m/s²
+
+def get_valid_input(prompt, input_type=float):
+    """Get and validate user input with error handling."""
+    while True:
+        try:
+            user_input = input(prompt).strip()
+            if not user_input:
+                return None
+            return input_type(user_input)
+        except ValueError:
+            print("Invalid input! Please enter a valid number.")
+
+# Get user inputs with validation
+print("=== Aerospace Dynamic Pressure Calculator ===")
+velocity = get_valid_input("Enter velocity in m/s: ")
+custom_density = get_valid_input("Enter air density in kg/m³ (or press Enter for sea level): ")
+
+# Use default if no custom density provided
+air_density = custom_density if custom_density is not None else AIR_DENSITY_SEA_LEVEL
+
+# Calculation
+dynamic_pressure = 0.5 * air_density * velocity ** 2
+
+# Output with significant figures and professional formatting
+print("\n" + "="*50)
+print("CALCULATION RESULTS:")
+print("="*50)
+print(f"Velocity:           {velocity:>8.3f} m/s")
+print(f"Air Density:       {air_density:>8.4f} kg/m³")
+print(f"Dynamic Pressure:  {dynamic_pressure:>8.2f} Pascals")  # 2 decimal places for engineering
+print("="*50)
+
+# Additional useful calculations
+if air_density == AIR_DENSITY_SEA_LEVEL:
+    print(f"✓ Using standard sea level density")
+    
+# Example of string operations you asked about
+conditions = ["sea-level", "standard", "ISA"]
+condition_str = " | ".join(conditions)  # Joining example
+print(f"Available conditions: {condition_str}")
+
+# Searching example
+if "sea" in condition_str.lower():  # Searching example
+    print("✓ Sea-level conditions detected")
